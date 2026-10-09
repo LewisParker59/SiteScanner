@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SiteScanner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <div class="brand-mark">S</div>
+          <div>
+            <div class="brand-title">SiteScanner</div>
+            <div class="brand-subtitle">St Philip’s Marsh · judgement tool</div>
+          </div>
+        </div>
+
+        <div class="toolbar-actions">
+          <button id="addImageBtn" class="primary-button">+ Add image</button>
+          <button id="newScenarioBtn" class="secondary-button">New scenario</button>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="visual-panel">
+          <div class="panel-header">
+            <div>
+              <span class="eyebrow">Site analysis board</span>
+              <h1 id="siteTitle">St Philip’s Marsh</h1>
+            </div>
+            <div class="legend-row">
+              <span class="legend-item"><span class="dot keep"></span>retain</span>
+              <span class="legend-item"><span class="dot adapt"></span>adapt</span>
+              <span class="legend-item"><span class="dot reuse"></span>reuse</span>
+            </div>
+          </div>
+
+          <div class="board-wrap">
+            <div id="board" class="board" aria-label="Site image analysis board">
+              <img id="activeImage" alt="Current site analysis image" />
+              <div id="annotationLayer" class="annotation-layer"></div>
+            </div>
+          </div>
+
+          <div class="context-strip">
+            <label class="field">
+              <span>Site name</span>
+              <input id="siteNameInput" type="text" value="St Philip’s Marsh" />
+            </label>
+            <label class="field">
+              <span>Analysis question</span>
+              <input id="analysisQuestion" type="text" value="What should remain, what should change, what can be reused, and what is genuinely new?" />
+            </label>
+          </div>
+
+          <div class="image-strip-wrapper">
+            <div class="strip-header">
+              <span class="eyebrow">Image set</span>
+              <button id="clearImagesBtn" class="mini-button">Clear</button>
+            </div>
+            <div id="imageStrip" class="image-strip"></div>
+          </div>
+        </section>
+
+        <aside class="inspector-panel">
+          <section class="panel-block">
+            <div class="block-heading">
+              <h3>Judgement matrix</h3>
+              <span id="overallScore" class="pill">Overall 0.0</span>
+            </div>
+            <div id="criteriaList" class="criteria-list"></div>
+          </section>
+
+          <section class="panel-block">
+            <div class="block-heading">
+              <h3>Decision board</h3>
+            </div>
+            <div id="decisionBoard" class="decision-board"></div>
+          </section>
+
+          <section class="panel-block">
+            <div class="block-heading">
+              <h3>Materials</h3>
+            </div>
+            <div class="tag-input-row">
+              <input id="materialInput" type="text" placeholder="Add material" />
+              <button id="addMaterialBtn" class="mini-button">Add</button>
+            </div>
+            <div id="materialList" class="material-list"></div>
+          </section>
+
+          <section class="panel-block">
+            <div class="block-heading">
+              <h3>Insight notes</h3>
+            </div>
+            <textarea id="analysisNotes" rows="6" placeholder="Write your reasoning...">The site’s value is not only architectural quality. The social and economic function of the existing fabric should carry weight, and the decision should be based on what is useful, adaptable, and visible at the scale of daily life.</textarea>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <input id="imageInput" type="file" accept="image/*" multiple hidden />
+
+    <script src="script.js"></script>
+  </body>
+</html>
